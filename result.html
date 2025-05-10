@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Signature Verification Result">
+  <meta name="author" content="Akash Bhadange">
+  <title>Prediction Result</title>
+
+  <!-- Bootstrap -->
+  <link href="static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/css/style.css" rel="stylesheet">
+  <link href="static/css/themify-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    .hero-header {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      padding: 60px 30px;
+      color: white;
+    }
+
+    .hero-header h1 {
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    .hero-header h3 {
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    .rocket {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .upload img {
+      max-width: 100%;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 5px;
+      background: #fff;
+      margin-bottom: 15px;
+    }
+
+    .upload h3 {
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    h1.text-dark.mb-5 {
+      font-weight: 700;
+      font-size: 32px;
+    }
+
+    h3[style*="font-size: xx-large"] {
+      color: #5a00b1 !important;
+      font-weight: bold;
+      font-size: 36px !important;
+    }
+
+    .button {
+      background: #2575fc;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      font-size: 16px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #6a11cb;
+      box-shadow: 0 0 12px rgba(106, 17, 203, 0.5);
+    }
+
+    .footer {
+      background: #222;
+      color: white;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+
+    .footer-menu li {
+      display: inline-block;
+      margin-left: 15px;
+    }
+
+    .footer-menu a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-menu a:hover {
+      color: white;
+    }
+
+    .protect_section_2 {
+      padding: 60px 0;
+      background-color: #fff;
+    }
+
+    .protect_taital {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+  </style>
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".side-menu">
+
+  <nav class="side-menu">
+    <ul>
+      <li class="hidden active"><a class="page-scroll" href="#page-top"></a></li>
+      <li><a href="/index" class="page-scroll"><span class="menu-title">Home</span><span class="dot"></span></a></li>
+      <li><a href="/about" class="page-scroll"><span class="menu-title">About</span><span class="dot"></span></a></li>
+      <li><a href="/login" class="page-scroll"><span class="menu-title">Signout</span><span class="dot"></span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Header Section -->
+  <div class="container-fluid">
+    <div class="row hero-header" id="home">
+      <div class="col-md-7">
+        <img src="static/img/sign.png" class="logo" style="max-width: 180px;">
+        <h1>Welcome to Dashboard</h1>
+        <h3>A Hybrid Method of Feature Extraction for Signature Verification Using CNN and HOG</h3>
+      </div>
+      <div class="col-md-5 hidden-xs">
+        <img src="static/img/SGek60.jpg" class="rocket animated bounce">
+      </div>
+    </div>
+  </div>
+
+  <!-- Result Section -->
+  <div class="container">
+    <div class="row me-row content-ct">
+      <h1 class="protect_taital">Prediction Outcome</h1>
+    </div>
+    <div class="protect_section_2 layout_padding">
+      <div class="row">
+        <div style="margin-left: 15%;" class="col-xl-10 offset-xl-1">
+          <h1 class="text-dark mb-5">Your Prediction</h1>
+          <p class="text-dark">The result is:</p>
+          <br>
+          <div class="upload">
+            <h3>Uploaded Image:</h3>
+            <div class="first">
+              {% if img_src %}
+              <img src="{{ img_src }}">
+              {% endif %}
+            </div>
+          </div>
+          <br>
+          <h3>The Predicted as:</h3>
+          <br>
+          <h3 style="font-size: xx-large;color: darkslateblue;">{{ hybrid_pred }}</h3>
+          <br>
+          <a href="{{ url_for('index') }}"><button class="button mt-3">Try again?</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="container-fluid footer">
+    <div class="row footer-credit">
+      <div class="col-md-6 col-sm-6">
+        <p>&copy; 2025 majorproject-A7 | All rights reserved.</p>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <ul class="footer-menu">
+          <li><a href="/index">Home</a></li>
+          <li><a href="/notebook1">Cedar</a></li>
+          <li><a href="/notebook2">UTSig</a></li>
+          <li><a href="/login">Signout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/jquery.easing.min.js"></script>
+  <script src="static/js/scrolling-nav.js"></script>
+  <script src="static/js/validator.js"></script>
+</body>
+</html>
